@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: visara
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false        # diisi manual di dasbor Render, JANGAN ditulis di sini
+      - key: MODEL_MAIN
+        value: gemini-3.1-flash-lite
+      - key: NODE_VERSION
+        value: "20"
